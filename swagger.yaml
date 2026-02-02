@@ -1,0 +1,131 @@
+openapi: 3.0.0
+info:
+  title: BankInc Copy
+  version: 1.0.0
+servers:
+  - url: https://bankincprueba.onrender.com
+paths:
+  /api/cards/102030/number:
+    get:
+      tags:
+        - default
+      summary: Generar numero tarjeta
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/cards/enroll:
+    post:
+      tags:
+        - default
+      summary: Activar/Enrolar tarjeta
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                cardId: '1020307575484360'
+                holderName: 'Pedro Motoa '
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/cards/block/1020307575484360:
+    delete:
+      tags:
+        - default
+      summary: Bloquear tarjeta
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/cards/recharge:
+    post:
+      tags:
+        - default
+      summary: Recargar saldo tarjeta
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                cardId: '1020307575484360'
+                amount: 300
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/cards/balance/1020307575484360:
+    get:
+      tags:
+        - default
+      summary: Consultar saldo tarjeta
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/cards/1020307575484360/activate:
+    put:
+      tags:
+        - default
+      summary: Desbloquear tarjeta
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/transaction/purchase:
+    post:
+      tags:
+        - default
+      summary: Transaccion de compra
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                cardId: '1020307575484360'
+                price: 20
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/transaction/eeb29ecd-ccd7-4d53-b381-20da3d0b5124:
+    get:
+      tags:
+        - default
+      summary: Consulta transaccion
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/transaction/transaction/anulation:
+    post:
+      tags:
+        - default
+      summary: Anulacion Transaccion
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                cardId: '1020309668529653'
+                transactionId: 39cc3104-0f76-4aea-bf6c-39fd577a9563
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
